@@ -1,11 +1,6 @@
 import React from "react";
-const headName = (props) => {
-return (
-  <div>
-    <p>This is {props.name} component.. And the type is {props.type} {props.children}</p>
-    <p></p>
-  </div>
-)
+const person = () => {
+  return <p>This is first component</p>;
 };
 
-export default headName;
+export default person;
