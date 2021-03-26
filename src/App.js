@@ -3,6 +3,9 @@ import "./style.css";
 import Person from "./Component/Component";
 
 class App extends Component {
+  state = {
+    person: [{ name: "First" }, { name: "Second" }, { name: "Third" }]
+  };
   render() {
     return (
       <div className="App">
@@ -14,9 +17,10 @@ class App extends Component {
             <th>Salary</th>
           </tr>
         </table>
-        <Person name="First" />
-        <Person name="Second">"Im Middle one"</Person>
-        <Person name="Third" />
+        <Person name={this.state.person[0].name} />
+        <Person name={this.state.person[1].name}>"Im Middle one"</Person>
+        <Person name={this.state.person[2].name} />
+        <Person name="Forth" />
       </div>
     );
   }
