@@ -14,7 +14,9 @@ class App extends Component {
             <th>Salary</th>
           </tr>
         </table>
-        <Person />
+        <Person name="First" />
+        <Person name="Second">"Im Middle one"</Person>
+        <Person name="Third" />
       </div>
     );
   }
