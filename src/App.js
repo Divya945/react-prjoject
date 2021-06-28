@@ -2,7 +2,20 @@ import React, { Component } from 'react';
 import './style.css';
 import Person from './Component/Component';
 import Employee from './Component/Employee';
-
+function employeAttnd(emp) {
+  return emp.empName + ' ' + emp.empJob;
+}
+function getEmpdetails(emp) {
+  if (emp) {
+    return <p>Hi, {employeAttnd(emp)}.. !</p>;
+  } else {
+    return <p>U R Outside Emp</p>;
+  }
+}
+const emp = {
+  empName: 'InsideEmp',
+  empJob: 'SF'
+};
 class App extends Component {
   state = {
     person: [{ name: 'First' }, { name: 'Second' }, { name: 'Third' }]
@@ -13,6 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <button>Employee Register Form </button>
         <table className="tableStyle">
           <tr>
             <th>ID</th>
@@ -42,6 +56,7 @@ class App extends Component {
         <Person name={this.state.person[1].name}>"Im Middle one"</Person>
         <Person name={this.state.person[2].name} />
         <Person name="Forth" />
+        <p> {employeAttnd(emp)}</p>
       </div>
     );
   }
