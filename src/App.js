@@ -5,6 +5,7 @@ import Employee from './Component/Employee';
 function employeAttnd(emp) {
   return emp.empName + ' ' + emp.empJob;
 }
+
 function getEmpdetails(emp) {
   if (emp) {
     return <p>Hi, {employeAttnd(emp)}.. !</p>;
@@ -12,9 +13,53 @@ function getEmpdetails(emp) {
     return <p>U R Outside Emp</p>;
   }
 }
+// function ImageComp(user){
+//   return (
+//     <div className= "ImageComp">
+//       <div>  {comment.text}</div>
+//       <div>
+//         <img src = {user.author.avathorUrl} />
+//     </div>
+//       <div>  {user.author.name}</div>
+//     </div>
+//   );
+// }
+function Avatar(props) {
+  return (
+    <img
+      className="Avatar"
+      src={props.users.avathorUrl}
+      alt={props.users.name}
+    />
+  );
+}
+function UserInfo(props) {
+  return (
+    <div>
+      {' '}
+      <Avatar users={props.users} />
+      <p>{props.users.name}</p>
+    </div>
+  );
+}
+function ImageComp(props) {
+  return (
+    <div className="ImageComp">
+      <UserInfo users={props.author} /> {comment.text}
+    </div>
+  );
+}
+
 const emp = {
   empName: 'InsideEmp',
   empJob: 'SF'
+};
+const comment = {
+  text: ' r u enjoying react !!',
+  author: {
+    name: 'nameof Image',
+    avathorUrl: 'https://placekitten.com/g/64/64'
+  }
 };
 class App extends Component {
   state = {
@@ -57,6 +102,7 @@ class App extends Component {
         <Person name={this.state.person[2].name} />
         <Person name="Forth" />
         <p> {employeAttnd(emp)}</p>
+        <ImageComp author={comment.author} text={comment.text} />
       </div>
     );
   }
