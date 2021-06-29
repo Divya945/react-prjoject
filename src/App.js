@@ -68,10 +68,18 @@ class App extends Component {
   listOfEmp = {
     employee: [{ id: 101 }, { name: 'User1' }, { job: 'SF' }, { salary: 1000 }]
   };
+  constructor(props) {
+    super(props);
+    this.empRegForm = this.empRegForm.bind(this);
+  }
+  empRegForm() {
+    //e.preventDefault();
+    console.log('empRegForm');
+  }
   render() {
     return (
       <div className="App">
-        <button>Employee Register Form </button>
+        <button onClick={this.empRegForm}>Employee Register Form </button>
         <table className="tableStyle">
           <tr>
             <th>ID</th>
